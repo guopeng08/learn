@@ -37,6 +37,7 @@ function str_cut($str){
 }
 
 $newstr=str_cut($str);
+
 var_dump($newstr);
 
 

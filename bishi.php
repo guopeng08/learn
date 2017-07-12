@@ -30,10 +30,26 @@ echo $str1."->".str_rev_gb($str1)."<br>";
 echo $str2."->".str_rev_gb($str2)."<br>";
 echo $str3."->".str_rev_gb($str3)."<br>";
 echo $str4."->".str_rev_gb($str4)."<br>";
-
 $arr=range('a', 'z');
+//var_dump($arr);die;
+function get_extension($file)
+{
+    echo substr(strrchr($file, '.'), 1);
+}
+//1.php文件的扩展
+$url='http://www.test.com.cn/abc/dec/fg.php?id=2';
+$arr=parse_url($url);
+$file=basename($arr['path']);
 
-var_dump($arr);die;
+$ext=explode('.',$file);
+//echo $ext[1];
+//get_extension('adfd.php');
+
+$a = 1;
+$b =& $a;
+unset ($a);
+echo $b;
+
 
 
 
