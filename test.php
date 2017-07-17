@@ -49,7 +49,26 @@ function getTop($arr, $topNum){
 print_r(getTop(array(1,2,5,6,7,976,0,4,123,4,5),6));
 
 
-
+$filename="123.jpg";
+//方法一：
+function get_ext($file_name){
+    return array_pop(explode('.', $file_name));
+    //用.号对字符串进行分组
+}
+echo get_ext($filename);
+//方法二：
+$fileEx=strtolower(substr(strrchr($filename,"."),1));
+echo $fileEx;
+//方法三：
+$extend=pathinfo($filename);
+echo $extend['extension'];
+//方法四：
+$filetype=array("image/gif","image/jpeg");
+//判断文件扩展名类型是否在该 数组中
+if(in_array($_FILES['file']['type'],$filetype)){
+//针对上传文件判断
+    echo $_FILES['file']['type'];
+}
 
 
 
