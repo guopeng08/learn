@@ -71,6 +71,62 @@ if(in_array($_FILES['file']['type'],$filetype)){
 }
 
 
+$aa=10+"10%"+"$100";
+var_dump($aa);
+if(10!==false){
+    echo "1111";
+}else{
+    echo '2222';
+}
+
+
+function test() {
+    $foo = "local variable";
+
+    echo '$foo in global scope: ' . $GLOBALS["foo"] . "\n";
+    echo '$foo in current scope: ' . $foo . "\n";
+}
+
+$foo = "Example content";
+test();
+
+$i =  1 ; //从第1圈开始跑
+do{  //跑10圈
+    echo "在跑第".$i."圈。";
+    $i++;
+}while($i<=10);
+
+$str="http://www.test.com.cn/abc/de/fg.php?id=1";
+$str2=parse_url($str);
+$str3=pathinfo($str2['path']);
+
+// echo $str3[extension];
+// echo "<br>";
+// echo ".{$str3[extension]}";
+
+
+
+function getExt($url){
+$arr = parse_url($url);
+$file = basename($arr['path']);
+$ext = explode(".",$file);
+return $ext[1];
+}
+
+echo function_exists('print');
+$a = array(1=>5,5=>8,22,2=>'8',81);
+var_dump($a);
+
+for($i=0;$i<10;$i++){
+print $i;
+}
+
+$fruits = array('strawberry'=>'red', 'banana'=>'yellow');
+echo "A banana is $fruits[banana]";
+
+
+
+
 
 
 
