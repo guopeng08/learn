@@ -166,8 +166,99 @@ $sort=insert_sort($arr);
 echo '<hr>';
 var_dump($sort);
 
+// mysql的连接操作
+$conn=mysql_connect('127.0.0.1','root','root');
+mysql_select_db('test');
+$sql="";
+if($result=mysql_query($sql)){
+    while($row=mysql_fetch_assoc($result)){
 
+    }
+}
 
+mysql_close();
+echo '<hr>';
+
+/*
+接口和抽象类的区别
+1.抽象类中可以有非抽象的方法,而接口只能有抽象的方法
+2.一个类可以继承多个接口，而一个类只能继承一个抽象类
+3.接口的使用方法通过implements关键字进行,抽象类通过extends关键字进行
+*/
+
+// 引用和传值
+$test = 'aaaaaa';
+$abc = &$test;
+unset($test);
+echo $abc;
+echo $test;
+
+/*
+    crontab 定时任务
+    分 时 日 月 星期
+    Crontab -e
+    00 00 * * * /sbin/reboot
+    分 时 日 月 周
+    参考: http://www.jb51.net/LINUXjishu/19905.html
+*/
+
+/*无限极分类*/
+/*
+create table It_cat(
+    id int(11) not null auto_increment primary_key,
+    pid int(11) not null,
+    path varchar(255) not null,
+    name varchar(50) not null
+)engine=myisam default charset=utf8;
+
+insert into lt_cat(pid,name,path) values(0,'China','0');  //id 为 1
+insert into lt_cat(pid,name,path) values(0,'American','0');  //id 为 2
+insert into lt_cat(pid,name,path) values(2,'new York','0,2'); //id 为 3
+insert into lt_cat(pid,name,path) values(1,'beijing','0,1');  //id 为 4
+insert into lt_cat(pid,name,path) values(4,'海淀','0,1,4'); //id 为 5
+
+*/
+
+$var1 = 5;
+$var2 = 10;
+function foo(&$my_var)
+{
+    global $var1;
+    $var1 += 2;
+    $var2 = 4;
+    $my_var += 3;
+    return $var2;
+
+}
+$my_var = 5;
+echo foo($my_var) . "\n";
+echo $my_var . "\n";
+echo $var1 . "\n";
+echo $var2 . "\n";
+$bar = 'foo';
+$my_var = 10;
+echo $bar($my_var) . "\n";
+
+$Tarray = array(
+array('id' => 0, 'name' => ‘123833’),
+
+array('id' => 0, 'name' => ‘aaa’),
+array('id' => 0, 'name' => ‘albabaababa’),
+array('id' => 0, 'name' => ‘12356’),
+array('id' => 0, 'name' => ‘123abc’)
+);
+foreach($Tarray as $key=>$value) {
+$long[$key] = strlen($value['name']);
+}
+//$Tarray 放最后一个参数,也就是最后一个数组按照第一个参数的顺序进行排序
+array_multisort($long, SORT_ASC, $Tarray);
+
+var_dump($Tarray);die;
+
+foreach($Tarray as &$value) {
+    $value['id'] = $i;
+    $i++;
+}
 
 
 
