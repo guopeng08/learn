@@ -32,7 +32,62 @@
 
 查看文件内容：
 	file my_file 显示文件的类型
-	cat file 查看文件内容
+	cat file 查看文件内容 给脚本加上行号使用 -b参数
+
+	more filename 查看文件的第一页，你可以使用空格键和回车键以逐行向前的方式浏览文
+	本文件。浏览完之后，按q键退出。
+	less filename  less 命令能够识别上下键以及上下翻页键（假设你的终端配置正确）。在
+	查看文件内容时，这给了你全面的控制权。
+查看部分文件
+	tail 默认显示最后10行的文本内容  tail -n 2 filename 显示文件的最后两行文件内容  参数:-f 循环读取 tail -f notes.log
+	head 显示文件开头10行的文本内容  head -5 filename 显示开头5行文件的内容
+监测程序
+	ps 它能输出运行在系统上的所有程序的许多信息
+	支持3种不同类型的命令行参数
+	1.Unix风格的 前面加上单破折线
+
+	ps -ef
+	UID PID PPID C STIME TTY TIME CMD
+	root 1 0 0 11:29 ? 00:00:01 init [5]
+	root 2 0 0 11:29 ? 00:00:00 [kthreadd]
+
+	2.BSD风格的参数 前面不加破折线
+	ps l
+
+	3.GNU风格的参数 前面加上双破折线
+	
+	top 而top命令刚好适用这种情况。 top命令跟 ps 命令相似，能够显示进程信息，但它是实时显示的
+结束进程
+	kill 进程号  kill -9 3787 强制杀死3787的进程
+	kill -HUP pid 如果想要更改配置而不需停止并重新启动服务，则使用该命令。在对配置文件作必要的更改后，发出该命令以动态更新服务配置。比如kill -HUP `cat /app/nginx/nginx.pid`
+	killall 进程名 比如killall http* 上例中的命令结束了所有以http开头的进程
+监测磁盘空间
+	挂载：mount -t type device direction
+	卸载：umount [device|direction]
+	df 显示每个挂载数据的文件系统	-h 参数 以容易读的方式显示出来
+	du 显示某个特定文件目录的空间的占用情况 
+处理数据文件
+	sort命令 排序 sort -n file2 按照数字进行排序 sort -M file3 按照月份进行排序
+	sort -t ':' -k 3 -n /etc/passwd  要对前面提到的密码文件/etc/passwd根据用户ID进行数值排序
+搜索
+	grep three file1 在文本file1中，搜索three的字符 grep -n t file1搜索结果加上行号
+压缩解压
+	 tar -zxvf filename.tgz -C dir 解压到指定目录
+	 tar -cvf test.tar test/ test2/ 上面的命令创建了名为test.tar的归档文件，含有test和test2目录内容
+	 tar -xvf test.tar 通过这一命令从tar文件test.tar中提取内容。如果tar文件是从一个目录结构创建的，那整个目录结构都会在当前目录下重新创建
+	 
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 
